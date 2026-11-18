@@ -1,284 +1,274 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ritamaya | Melodies, Flavours, Soulful Talks & Curated Finds</title>
+    <title>Ritamaya | Curated Style, Melodies & Lifestyle</title>
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
+        :root {
+            --bg-dark: #0b0d14;
+            --card-bg: rgba(255, 255, 255, 0.04);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --gold-accent: #e2b857;
+            --gold-hover: #f3cd74;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Plus Jakarta Sans', sans-serif;
         }
+
         body {
-            background: radial-gradient(circle at top right, #23192d, #110d17);
-            color: #f5f3f7;
-            min-height: 100vh;
-            padding-bottom: 50px;
+            background: radial-gradient(circle at top right, #1e1b4b, var(--bg-dark) 50%),
+                        radial-gradient(circle at bottom left, #27172e, var(--bg-dark) 50%);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
             line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
         }
-        /* Hero Section */
-        .hero {
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        /* Header / Brand Identity */
+        header {
             text-align: center;
-            padding: 65px 20px 45px;
-            background: linear-gradient(180deg, rgba(235, 184, 102, 0.14) 0%, transparent 100%);
+            padding: 60px 20px 45px;
         }
-        .sanskrit-sub {
+
+        .brand-badge {
             display: inline-block;
-            background: rgba(235, 184, 102, 0.15);
-            color: #ebb866;
-            padding: 6px 18px;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            letter-spacing: 1.5px;
-            margin-bottom: 15px;
-            border: 1px solid rgba(235, 184, 102, 0.35);
-        }
-        .hero h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 3.2rem;
+            font-size: 0.75rem;
             letter-spacing: 3px;
-            background: linear-gradient(90deg, #ffffff, #ebb866, #ffffff);
+            text-transform: uppercase;
+            color: var(--gold-accent);
+            border: 1px solid rgba(226, 184, 87, 0.3);
+            padding: 6px 16px;
+            border-radius: 50px;
+            margin-bottom: 18px;
+            background: rgba(226, 184, 87, 0.08);
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            letter-spacing: 4px;
+            background: linear-gradient(135deg, #ffffff 30%, var(--gold-accent) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 12px;
-        }
-        .hero p {
-            color: #b8b2c2;
-            max-width: 620px;
-            margin: 0 auto;
-            font-size: 1.02rem;
+            margin-bottom: 14px;
         }
 
-        /* Interactive Filter Tabs */
-        .tabs {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin: 15px auto 45px;
-            padding: 0 15px;
+        .tagline {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 560px;
+            margin: 0 auto 28px;
         }
-        .tab-btn {
-            background: rgba(255, 255, 255, 0.05);
-            color: #d8d4e0;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            padding: 10px 22px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        .tab-btn:hover, .tab-btn.active {
-            background: #ebb866;
-            color: #110d17;
+
+        /* Primary CTA Button */
+        .primary-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--gold-accent), #c59636);
+            color: #0b0d14;
             font-weight: 700;
-            border-color: #ebb866;
-            box-shadow: 0 4px 15px rgba(235, 184, 102, 0.3);
+            padding: 14px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            box-shadow: 0 8px 25px rgba(226, 184, 87, 0.25);
         }
 
-        /* Grid Layout */
-        .container {
-            max-width: 1060px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
+        .primary-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(226, 184, 87, 0.4);
         }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.04);
-            backdrop-filter: blur(14px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+
+        /* Grid Cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 20px 0 50px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
             border-radius: 20px;
-            padding: 28px;
+            padding: 30px;
+            backdrop-filter: blur(12px);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             transition: transform 0.3s ease, border-color 0.3s ease;
         }
-        .glass-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(235, 184, 102, 0.5);
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(226, 184, 87, 0.45);
         }
+
         .tag {
-            font-size: 0.78rem;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            color: #ebb866;
-            margin-bottom: 10px;
+            font-size: 0.8rem;
             font-weight: 600;
+            color: var(--gold-accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
         }
-        .glass-card h3 {
-            font-size: 1.32rem;
+
+        .card h3 {
+            font-size: 1.35rem;
             margin-bottom: 10px;
-            color: #ffffff;
+            color: #fff;
         }
-        .glass-card p {
-            color: #aba5b5;
-            font-size: 0.94rem;
-            margin-bottom: 22px;
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 24px;
         }
-        .action-link {
+
+        .card-link {
             display: inline-block;
-            text-align: center;
-            padding: 11px 20px;
-            border-radius: 12px;
-            background: rgba(235, 184, 102, 0.14);
-            color: #ebb866;
+            color: var(--gold-accent);
             text-decoration: none;
             font-weight: 600;
             font-size: 0.9rem;
-            border: 1px solid rgba(235, 184, 102, 0.3);
-            transition: 0.3s;
-        }
-        .action-link:hover {
-            background: #ebb866;
-            color: #110d17;
+            border-bottom: 1px solid rgba(226, 184, 87, 0.4);
+            padding-bottom: 3px;
+            align-self: flex-start;
+            transition: color 0.2s;
         }
 
-        /* Social Connect Section */
-        .connect-section {
-            max-width: 1020px;
-            margin: 55px auto 0;
-            padding: 35px 20px;
+        .card-link:hover {
+            color: #fff;
+            border-color: #fff;
+        }
+
+        /* Connect / Social Section */
+        .connect-box {
+            background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 40px 24px;
             text-align: center;
-            background: rgba(235, 184, 102, 0.06);
-            border: 1px solid rgba(235, 184, 102, 0.2);
-            border-radius: 22px;
+            margin-bottom: 40px;
         }
-        .connect-section h2 {
+
+        .connect-box h2 {
             font-family: 'Cinzel', serif;
-            color: #ebb866;
+            font-size: 1.75rem;
             margin-bottom: 10px;
-            font-size: 1.6rem;
+            color: #fff;
         }
-        .social-row {
-            margin-top: 20px;
+
+        .connect-box p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 26px;
+        }
+
+        .social-links {
             display: flex;
-            justify-content: center;
-            gap: 15px;
             flex-wrap: wrap;
+            justify-content: center;
+            gap: 14px;
         }
+
         .social-pill {
-            padding: 10px 22px;
-            border-radius: 30px;
-            background: rgba(255, 255, 255, 0.08);
+            padding: 12px 24px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--card-border);
             color: #fff;
             text-decoration: none;
             font-size: 0.9rem;
-            transition: 0.3s;
+            font-weight: 500;
+            transition: all 0.25s ease;
         }
+
         .social-pill:hover {
-            background: #ebb866;
-            color: #110d17;
+            background: var(--gold-accent);
+            color: #0b0d14;
+            font-weight: 600;
+            border-color: var(--gold-accent);
         }
 
         footer {
             text-align: center;
-            margin-top: 50px;
-            padding: 0 20px;
-            color: #7c7687;
+            color: var(--text-muted);
             font-size: 0.85rem;
+            padding: 20px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
         }
     </style>
 </head>
 <body>
 
-    <div class="hero">
-        <span class="sanskrit-sub">✨ ऋत्मय • DIVINE RHYTHM & SOULFUL LIVING ✨</span>
-        <h1>RITAMAYA</h1>
-        <p>Singing ki mithaas, khane ka swad, zindagi ki sacchi baatein aur mere kuch khas shopping finds—ek aisi duniya jo sabse alag hai.</p>
+    <div class="container">
+        <!-- Main Hero Section -->
+        <header>
+            <div class="brand-badge">Welcome to the World of</div>
+            <h1>RITAMAYA</h1>
+            <p class="tagline">Where timeless fashion meets soulful melodies. Explore curated ethnic & everyday styles, handpicked deals, and musical creations.</p>
+            
+            <!-- Yahan apna Meesho Link lagayein -->
+            <a href="YOUR_MEESHO_LINK" class="primary-btn">🛍️ Explore Ritamaya Store</a>
+        </header>
+
+        <!-- Featured Sections -->
+        <section class="grid">
+            <!-- Fashion / Meesho Card -->
+            <div class="card">
+                <div>
+                    <div class="tag">✨ Curated Wardrobe</div>
+                    <h3>Signature Ethnic & Daily Wear</h3>
+                    <p>Har khaas mauke aur rozmarra ke liye chune hue aaramdayak aur stylish outfits, jo aapke budget mein fit baithein.</p>
+                </div>
+                <!-- Yahan Meesho Collection Link lagayein -->
+                <a href="YOUR_MEESHO_LINK" class="card-link">Shop Collection on Meesho →</a>
+            </div>
+
+            <!-- Music / Singing Card -->
+            <div class="card">
+                <div>
+                    <div class="tag">🎶 Soulful Melodies</div>
+                    <h3>Ritamaya Acoustic Sessions</h3>
+                    <p>Dil ko chhoo lene wale gaane aur sukoon bhari dhun, jo aapke safar aur shaam ko aur bhi khaas bana dein.</p>
+                </div>
+                <!-- Yahan YouTube ya Playlist Link lagayein -->
+                <a href="YOUR_YOUTUBE_LINK" class="card-link">Listen to Playlist →</a>
+            </div>
+        </section>
+
+        <!-- Social & Shopping Connect -->
+        <section class="connect-box">
+            <h2>Join The Ritamaya Community</h2>
+            <p>Naye gaano, styling tips aur daily shopping deals ke liye humse judein.</p>
+            <div class="social-links">
+                <a href="YOUR_INSTAGRAM_LINK" class="social-pill">Instagram</a>
+                <a href="YOUR_YOUTUBE_LINK" class="social-pill">YouTube Channel</a>
+                <a href="YOUR_MEESHO_LINK" class="social-pill">Meesho Official Store</a>
+            </div>
+        </section>
+
+        <footer>
+            © 2026 Ritamaya. Crafted with passion & elegance.
+        </footer>
     </div>
 
-    <!-- Filter Buttons -->
-    <div class="tabs">
-        <button class="tab-btn active" onclick="filterCards('all', this)">✨ Sab Dekhein</button>
-        <button class="tab-btn" onclick="filterCards('singing', this)">🎤 Singing</button>
-        <button class="tab-btn" onclick="filterCards('foodie', this)">🍜 Foodie</button>
-        <button class="tab-btn" onclick="filterCards('life', this)">🌙 Life Talks</button>
-        <button class="tab-btn" onclick="filterCards('shopping', this)">🛍️ Ritmaya Finds</button>
-    </div>
-
-    <!-- Cards Container -->
-    <div class="container" id="cardGrid">
-
-        <!-- Singing Card -->
-        <div class="glass-card" data-category="singing">
-            <div>
-                <div class="tag">🎤 Unplugged & Bhajans</div>
-                <h3>Sukoon Bhare Sur aur Covers</h3>
-                <p>Meri awaaz mein kuch dil ko chhoo lene wale gaane aur bhajans. Headphones lagayein aur is sangeetmay safar ka hissa banein.</p>
-            </div>
-            <a href="#" class="action-link">Gaana Sunein →</a>
-        </div>
-
-        <!-- Shopping Card 1 -->
-        <div class="glass-card" data-category="shopping">
-            <div>
-                <div class="tag">🛍️ Curated by Ritmaya</div>
-                <h3>Aesthetic Room & Temple Decor</h3>
-                <p>Ghar aur kamre ko ek shant, sundar aur positive vibe dene ke liye mere sabse pasandida decor items.</p>
-            </div>
-            <!-- Yahan '#' ki jagah apna EarnKaro/Amazon Affiliate Link dalein -->
-            <a href="#" class="action-link">Shop Now (Check Price) →</a>
-        </div>
-
-        <!-- Foodie Card -->
-        <div class="glass-card" data-category="foodie">
-            <div>
-                <div class="tag">🍜 Swad & Cravings</div>
-                <h3>Meri Favourite Comfort Recipes</h3>
-                <p>Ghar par aasani se banne wali chatpati dishes aur street food stories jo har foodie ka dil jeet lein.</p>
-            </div>
-            <a href="#" class="action-link">Recipe Dekhein →</a>
-        </div>
-
-        <!-- Life Talks Card -->
-        <div class="glass-card" data-category="life">
-            <div>
-                <div class="tag">🌙 Dil Se Baatein</div>
-                <h3>Mann Ki Shanti aur Positive Soch</h3>
-                <p>Zindagi ke utaar-chadhav mein khud ko kaise sambhalein aur ishwar par bharosa rakh kar aage badhein.</p>
-            </div>
-            <a href="#" class="action-link">Poora Note Padhein →</a>
-        </div>
-
-        <!-- Shopping Card 2 -->
-        <div class="glass-card" data-category="shopping">
-            <div>
-                <div class="tag">🛍️ Wardrobe & Style</div>
-                <h3>Elegant Ethnic & Everyday Wear</h3>
-                <p>Har mauke par pehenne ke liye aaramdayak, classy aur budget-friendly kapdon ka mera khas collection.</p>
-            </div>
-            <a href="#" class="action-link">Collection Dekhein →</a>
-        </div>
-
-        <!-- Singing / Playlist Card -->
-        <div class="glass-card" data-category="singing">
-            <div>
-                <div class="tag">🎧 Soulful Playlist</div>
-                <h3>Ritamaya Special Playlist</h3>
-                <p>Wo gaane aur dhun jo safar karte waqt ya khana banate waqt mann ko ek alag hi khushi dete hain.</p>
-            </div>
-            <a href="#" class="action-link">Playlist Kholein →</a>
-        </div>
-
-    </div>
-
-    <!-- Social Media Section -->
-    <div class="connect-section">
-        <h2>Ritamaya Parivar Se Judein</h2>
-        <p>Naye gaano, recipes aur daily shopping deals ke liye mujhe follow karein.</p>
-        <div class="social-row">
-            <a href="#" class="social-pill">Instagram (@ritmaya)</a>
-            <a href="#" class="social-pill">YouTube Channel</a>
-             <a href="https://meesho.com" class="social-pill">My Shopping</a>
-
-
-        </div>
-    </div>
-
+</body>
+</html>
