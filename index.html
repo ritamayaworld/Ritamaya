@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ritmaya | Melodies, Flavours, Soulful Talks & Curated Finds</title>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        body {
+            background: radial-gradient(circle at top right, #23192d, #110d17);
+            color: #f5f3f7;
+            min-height: 100vh;
+            padding-bottom: 50px;
+            line-height: 1.6;
+        }
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 65px 20px 45px;
+            background: linear-gradient(180deg, rgba(235, 184, 102, 0.14) 0%, transparent 100%);
+        }
+        .sanskrit-sub {
+            display: inline-block;
+            background: rgba(235, 184, 102, 0.15);
+            color: #ebb866;
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(235, 184, 102, 0.35);
+        }
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.2rem;
+            letter-spacing: 3px;
+            background: linear-gradient(90deg, #ffffff, #ebb866, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 12px;
+        }
+        .hero p {
+            color: #b8b2c2;
+            max-width: 620px;
+            margin: 0 auto;
+            font-size: 1.02rem;
+        }
+
+        /* Interactive Filter Tabs */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 15px auto 45px;
+            padding: 0 15px;
+        }
+        .tab-btn {
+            background: rgba(255, 255, 255, 0.05);
+            color: #d8d4e0;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 10px 22px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .tab-btn:hover, .tab-btn.active {
+            background: #ebb866;
+            color: #110d17;
+            font-weight: 700;
+            border-color: #ebb866;
+            box-shadow: 0 4px 15px rgba(235, 184, 102, 0.3);
+        }
+
+        /* Grid Layout */
+        .container {
+            max-width: 1060px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(235, 184, 102, 0.5);
+        }
+        .tag {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: #ebb866;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .glass-card h3 {
+            font-size: 1.32rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+        .glass-card p {
+            color: #aba5b5;
+            font-size: 0.94rem;
+            margin-bottom: 22px;
+        }
+        .action-link {
+            display: inline-block;
+            text-align: center;
+            padding: 11px 20px;
+            border-radius: 12px;
+            background: rgba(235, 184, 102, 0.14);
+            color: #ebb866;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: 1px solid rgba(235, 184, 102, 0.3);
+            transition: 0.3s;
+        }
+        .action-link:hover {
+            background: #ebb866;
+            color: #110d17;
+        }
+
+        /* Social Connect Section */
+        .connect-section {
+            max-width: 1020px;
+            margin: 55px auto 0;
+            padding: 35px 20px;
+            text-align: center;
+            background: rgba(235, 184, 102, 0.06);
+            border: 1px solid rgba(235, 184, 102, 0.2);
+            border-radius: 22px;
+        }
+        .connect-section h2 {
+            font-family: 'Cinzel', serif;
+            color: #ebb866;
+            margin-bottom: 10px;
+            font-size: 1.6rem;
+        }
+        .social-row {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .social-pill {
+            padding: 10px 22px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+        .social-pill:hover {
+            background: #ebb866;
+            color: #110d17;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 0 20px;
+            color: #7c7687;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <span class="sanskrit-sub">✨ ऋत्मय • DIVINE RHYTHM & SOULFUL LIVING ✨</span>
+        <h1>RITMAYA</h1>
+        <p>Singing ki mithaas, khane ka swad, zindagi ki sacchi baatein aur mere kuch khas shopping finds—ek aisi duniya jo sabse alag hai.</p>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="tabs">
+        <button class="tab-btn active" onclick="filterCards('all', this)">✨ Sab Dekhein</button>
+        <button class="tab-btn" onclick="filterCards('singing', this)">🎤 Singing</button>
+        <button class="tab-btn" onclick="filterCards('foodie', this)">🍜 Foodie</button>
+        <button class="tab-btn" onclick="filterCards('life', this)">🌙 Life Talks</button>
+        <button class="tab-btn" onclick="filterCards('shopping', this)">🛍️ Ritmaya Finds</button>
+    </div>
+
+    <!-- Cards Container -->
+    <div class="container" id="cardGrid">
+
+        <!-- Singing Card -->
+        <div class="glass-card" data-category="singing">
+            <div>
+                <div class="tag">🎤 Unplugged & Bhajans</div>
+                <h3>Sukoon Bhare Sur aur Covers</h3>
+                <p>Meri awaaz mein kuch dil ko chhoo lene wale gaane aur bhajans. Headphones lagayein aur is sangeetmay safar ka hissa banein.</p>
+            </div>
+            <a href="#" class="action-link">Gaana Sunein →</a>
+        </div>
+
+        <!-- Shopping Card 1 -->
+        <div class="glass-card" data-category="shopping">
+            <div>
+                <div class="tag">🛍️ Curated by Ritmaya</div>
+                <h3>Aesthetic Room & Temple Decor</h3>
+                <p>Ghar aur kamre ko ek shant, sundar aur positive vibe dene ke liye mere sabse pasandida decor items.</p>
+            </div>
+            <!-- Yahan '#' ki jagah apna EarnKaro/Amazon Affiliate Link dalein -->
+            <a href="#" class="action-link">Shop Now (Check Price) →</a>
+        </div>
+
+        <!-- Foodie Card -->
+        <div class="glass-card" data-category="foodie">
+            <div>
+                <div class="tag">🍜 Swad & Cravings</div>
+                <h3>Meri Favourite Comfort Recipes</h3>
+                <p>Ghar par aasani se banne wali chatpati dishes aur street food stories jo har foodie ka dil jeet lein.</p>
+            </div>
+            <a href="#" class="action-link">Recipe Dekhein →</a>
+        </div>
+
+        <!-- Life Talks Card -->
+        <div class="glass-card" data-category="life">
+            <div>
+                <div class="tag">🌙 Dil Se Baatein</div>
+                <h3>Mann Ki Shanti aur Positive Soch</h3>
+                <p>Zindagi ke utaar-chadhav mein khud ko kaise sambhalein aur ishwar par bharosa rakh kar aage badhein.</p>
+            </div>
+            <a href="#" class="action-link">Poora Note Padhein →</a>
+        </div>
+
+        <!-- Shopping Card 2 -->
+        <div class="glass-card" data-category="shopping">
+            <div>
+                <div class="tag">🛍️ Wardrobe & Style</div>
+                <h3>Elegant Ethnic & Everyday Wear</h3>
+                <p>Har mauke par pehenne ke liye aaramdayak, classy aur budget-friendly kapdon ka mera khas collection.</p>
+            </div>
+            <a href="#" class="action-link">Collection Dekhein →</a>
+        </div>
+
+        <!-- Singing / Playlist Card -->
+        <div class="glass-card" data-category="singing">
+            <div>
+                <div class="tag">🎧 Soulful Playlist</div>
+                <h3>Ritmaya Special Playlist</h3>
+                <p>Wo gaane aur dhun jo safar karte waqt ya khana banate waqt mann ko ek alag hi khushi dete hain.</p>
+            </div>
+            <a href="#" class="action-link">Playlist Kholein →</a>
+        </div>
+
+    </div>
+
+    <!-- Social Media Section -->
+    <div class="connect-section">
+        <h2>Ritmaya Parivar Se Judein</h2>
+        <p>Naye gaano, recipes aur daily shopping deals ke liye mujhe follow karein.</p>
+        <div class="social-row">
+            <a href="#" class="social-pill">Instagram (@ritmaya)</a>
+            <a href="#" class="social-pill">YouTube Channel</a>
+            <a href="#" class="social-pill">My Shopping Store</a>
+        </div>
+    </div>
+
